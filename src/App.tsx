@@ -33,10 +33,8 @@ const gameRoute = new Route({
 
 const routeTree = rootRoute.addChildren([startRoute, gameRoute]);
 
-// Create the router using your route tree
 const router = new Router({ routeTree });
 
-// Register your router for maximum type safety
 declare module "@tanstack/react-router" {
   interface Register {
     router: typeof router;
