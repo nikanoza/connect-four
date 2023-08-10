@@ -11,6 +11,12 @@ export default {
         yellow: "#FFCE67",
         light: "#ffffff",
       },
+      boxShadow: {
+        "panel-shadow": "0px 10px 0px 0px #000",
+      },
+      width: {
+        85: "340px",
+      },
     },
   },
   plugins: [],
