@@ -15,7 +15,9 @@ export default {
         "panel-shadow": "0px 10px 0px 0px #000",
       },
       width: {
-        85: "340px",
+        85: "21.25rem",
+        27: "6.75rem",
+        35: "8.875rem",
       },
     },
   },
