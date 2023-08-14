@@ -1,4 +1,4 @@
-import { Display, GameHeader, GamePanel } from "../components";
+import { Display, GameHeader, GamePanel, TurnPanel } from "../components";
 
 const Game = () => {
   return (
@@ -6,6 +6,7 @@ const Game = () => {
       <GameHeader />
       <GamePanel />
       <Display />
+      <TurnPanel />
     </div>
   );
 };
