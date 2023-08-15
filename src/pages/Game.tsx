@@ -19,11 +19,16 @@ const Game = () => {
     return () => clearInterval(interval);
   }, [timer]);
   return (
-    <div className="w-full min-h-screen flex flex-col items-center py-12">
+    <div className="w-full min-h-screen flex flex-col items-center pt-12">
       <GameHeader />
       <GamePanel />
       <Display />
       <TurnPanel currentPlayer={currentPlayer} timer={timer} />
+      <div
+        className={`w-full h-60 bg-${
+          currentPlayer === 1 ? "dark-violet" : "yellow"
+        } rounded-t-[60px] -mt-40`}
+      ></div>
     </div>
   );
 };
