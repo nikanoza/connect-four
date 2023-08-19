@@ -1,8 +1,8 @@
 const YellowSmall = () => {
   return (
     <svg
-      width="41px"
-      height="46px"
+      width="30px"
+      height="34px"
       viewBox="0 0 41 46"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +71,7 @@ const YellowSmall = () => {
             <use fill="#FFCE67" fillRule="evenodd" xlinkHref="#path-1"></use>
             <use
               fill="black"
-              fill-opacity="1"
+              fillOpacity="1"
               filter="url(#filter-2)"
               xlinkHref="#path-1"
             ></use>
