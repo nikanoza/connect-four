@@ -18,6 +18,19 @@ const Game = () => {
 
   const [state, setState] = useState(initialState);
 
+  const dropDisc = (board: Board, col: number, player: Cell): Board => {
+    const newBoard = [...board];
+
+    for (let row = numRows - 1; row >= 0; row--) {
+      if (!newBoard[row][col]) {
+        newBoard[row][col] = player;
+        break;
+      }
+    }
+
+    return newBoard;
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
       if (timer === 0) {
