@@ -19,11 +19,16 @@ const Game = () => {
 
     return () => clearInterval(interval);
   }, [timer, switchTurn]);
+
   return (
     <div className="w-full min-h-screen flex flex-col items-center pt-12">
       <GameHeader />
       <GamePanel />
-      <Display />
+      <Display
+        handleColumnClick={handleColumnClick}
+        state={state}
+        setTimer={setTimer}
+      />
       <TurnPanel currentPlayer={state.currentPlayer} timer={timer} />
       <div
         className={`w-full h-60 bg-${

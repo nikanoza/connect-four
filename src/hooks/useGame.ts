@@ -39,10 +39,9 @@ const useGame = () => {
   };
 
   const handleColumnClick = (col: number) => {
-    if (state.winner || !state.board[0][col]) return;
+    if (state.winner || state.board[0][6]) return;
 
     const newBoard = dropDisc(state.board, col, state.currentPlayer);
-
     setState({
       ...state,
       board: newBoard,
