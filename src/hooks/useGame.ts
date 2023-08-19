@@ -18,6 +18,13 @@ const useGame = () => {
     return currentPlayer === "red" ? "yellow" : "red";
   };
 
+  const switchTurn = () => {
+    setState({
+      ...state,
+      currentPlayer: switchPlayer(state.currentPlayer),
+    });
+  };
+
   const dropDisc = (board: Board, col: number, player: Cell): Board => {
     const newBoard = [...board];
 
@@ -43,7 +50,7 @@ const useGame = () => {
     });
   };
 
-  return {};
+  return { state, handleColumnClick, switchTurn };
 };
 
 export default useGame;
