@@ -7,23 +7,25 @@ const Game = () => {
   const [timer, setTimer] = useState<number>(30);
   const { state, handleColumnClick, switchTurn } = useGame();
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (timer === 0) {
-        setTimer(30);
-        switchTurn();
-        return;
-      }
-      setTimer((timer) => timer - 1);
-    }, 1000);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     if (timer === 0) {
+  //       setTimer(30);
+  //       switchTurn();
+  //       return;
+  //     }
+  //     if (!state.winner) {
+  //       setTimer((timer) => timer - 1);
+  //     }
+  //   }, 1000);
 
-    return () => clearInterval(interval);
-  }, [timer, switchTurn]);
+  //   return () => clearInterval(interval);
+  // }, [timer, switchTurn]);
 
   return (
     <div className="w-full min-h-screen flex flex-col items-center pt-12">
       <GameHeader />
-      <GamePanel />
+      <GamePanel scores={state.scores} />
       <Display
         handleColumnClick={handleColumnClick}
         state={state}
