@@ -1,3 +1,5 @@
+import { useNavigate } from "@tanstack/react-router";
+
 type PropsType = {
   setPause: React.Dispatch<React.SetStateAction<boolean>>;
   restart: () => void;
@@ -5,6 +7,7 @@ type PropsType = {
 };
 
 const Pause: React.FC<PropsType> = ({ setPause, restart, setTimer }) => {
+  const navigate = useNavigate();
   return (
     <div className="fixed z-30 w-screen h-screen top-0 left-0 bg-black bg-opacity-50 flex items-center justify-center px-5">
       <div className="w-full py-7 px-5 bg-dark-violet border-2 border-black rounded-[40px] shadow-panel-shadow">
@@ -25,7 +28,14 @@ const Pause: React.FC<PropsType> = ({ setPause, restart, setTimer }) => {
         >
           RESTART
         </button>
-        <button className="border-2 border-black w-full bg-pink h-[72px] text-2xl text-light font-bold rounded-[20px] mt-7 shadow-panel-shadow">
+        <button
+          onClick={() => {
+            restart();
+            setTimer(30);
+            navigate({ to: "/" });
+          }}
+          className="border-2 border-black w-full bg-pink h-[72px] text-2xl text-light font-bold rounded-[20px] mt-7 shadow-panel-shadow"
+        >
           QUIT GAME
         </button>
       </div>

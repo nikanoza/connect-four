@@ -139,7 +139,11 @@ const useGame = () => {
       scores: [0, 0],
       winner: null,
     };
-    setState(initial);
+
+    setState((prevState) => ({
+      ...prevState,
+      ...initial,
+    }));
   };
 
   return { state, handleColumnClick, switchTurn, restart };
