@@ -11,27 +11,40 @@ import { useGame } from "../hooks";
 
 const Game = () => {
   const [timer, setTimer] = useState<number>(30);
-  const { state, handleColumnClick, switchTurn } = useGame();
-  const [pause, setPause] = useState<boolean>(true);
+  const { state, handleColumnClick, switchTurn, restart } = useGame();
+  const [pause, setPause] = useState<boolean>(false);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     if (timer === 0) {
-  //       setTimer(30);
-  //       switchTurn();
-  //       return;
-  //     }
-  //     if (!state.winner) {
-  //       setTimer((timer) => timer - 1);
-  //     }
-  //   }, 1000);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (timer === 0) {
+        setTimer(30);
+        switchTurn();
+        return;
+      }
+      if (!state.winner && !pause) {
+        setTimer((timer) => timer - 1);
+      }
+    }, 1000);
 
-  //   return () => clearInterval(interval);
-  // }, [timer, switchTurn]);
+    return () => clearInterval(interval);
+  }, [timer, switchTurn]);
+
+  const pauseHandler: React.KeyboardEventHandler<HTMLDivElement> = (event) => {
+    console.log(event.key);
+    if (event.key === "p") {
+      setPause(!pause);
+    }
+  };
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-center pt-12">
-      {pause ? <Pause /> : null}
+    <div
+      className="w-full min-h-screen flex flex-col items-center pt-12"
+      tabIndex={0}
+      onKeyDown={pauseHandler}
+    >
+      {pause ? (
+        <Pause setPause={setPause} restart={restart} setTimer={setTimer} />
+      ) : null}
       <GameHeader />
       <GamePanel scores={state.scores} />
       <Display

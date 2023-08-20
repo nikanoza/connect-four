@@ -1,19 +1,19 @@
 import { useState } from "react";
 import { Board, Cell, GameState } from "../types";
 
+const initialBoard: Board = Array.from({ length: 7 }, () =>
+  Array(7).fill(null)
+);
+
+const initialState: GameState = {
+  board: initialBoard,
+  currentPlayer: "red",
+  scores: [0, 0],
+  winner: null,
+};
+
 const useGame = () => {
-  const initialBoard: Board = Array.from({ length: 7 }, () =>
-    Array(7).fill(null)
-  );
-
-  const initialState: GameState = {
-    board: initialBoard,
-    currentPlayer: "red",
-    scores: [0, 0],
-    winner: null,
-  };
-
-  const [state, setState] = useState<GameState>(initialState);
+  const [state, setState] = useState<GameState>({ ...initialState });
 
   const switchPlayer = (currentPlayer: Cell): Cell => {
     return currentPlayer === "red" ? "yellow" : "red";
@@ -21,10 +21,10 @@ const useGame = () => {
 
   const checkWin = (board: Board, row: number, col: number): boolean => {
     const directions = [
-      [0, 1], // Horizontal
-      [1, 0], // Vertical
-      [1, 1], // Diagonal right
-      [1, -1], // Diagonal left
+      [0, 1],
+      [1, 0],
+      [1, 1],
+      [1, -1],
     ];
 
     const currentPlayer = board[row][col];
@@ -130,7 +130,19 @@ const useGame = () => {
     }
   };
 
-  return { state, handleColumnClick, switchTurn };
+  const restart = () => {
+    const board: Board = Array.from({ length: 7 }, () => Array(7).fill(null));
+
+    const initial: GameState = {
+      board: board,
+      currentPlayer: "red",
+      scores: [0, 0],
+      winner: null,
+    };
+    setState(initial);
+  };
+
+  return { state, handleColumnClick, switchTurn, restart };
 };
 
 export default useGame;
