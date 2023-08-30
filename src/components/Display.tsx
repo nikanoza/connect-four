@@ -36,7 +36,7 @@ const Display: React.FC<PropsType> = ({
           <MarkerRed />
         </div>
       ) : (
-        <div></div>
+        <div className="hidden"></div>
       )}
       {array.map((_, index) => {
         const col_position = Math.floor(index / 7);
