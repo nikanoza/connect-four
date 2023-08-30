@@ -11,7 +11,8 @@ import { useGame } from "../hooks";
 
 const Game = () => {
   const [timer, setTimer] = useState<number>(30);
-  const { state, handleColumnClick, switchTurn, restart } = useGame();
+  const { state, handleColumnClick, switchTurn, restart, nextRound } =
+    useGame();
   const [pause, setPause] = useState<boolean>(false);
 
   useEffect(() => {
@@ -52,7 +53,22 @@ const Game = () => {
         state={state}
         setTimer={setTimer}
       />
-      <TurnPanel currentPlayer={state.currentPlayer} timer={timer} />
+      {state.winner ? (
+        <div className="flex flex-col items-center bg-light border-2 border-solid border-night shadow-panel-shadow rounded-3xl px-20 py-4 z-20 -mt-5">
+          <h3 className="text-night text-base font-bold">
+            {state.winner === "red" ? "PLAYER 1" : "PLAYER 2"}
+          </h3>
+          <h1 className="text-6xl font-bold text-night">WINS</h1>
+          <button
+            className="px-5 py-2 rounded-[20px] bg-dark-violet border-none text-light text-base font-bold"
+            onClick={nextRound}
+          >
+            PLAY AGAIN
+          </button>
+        </div>
+      ) : (
+        <TurnPanel currentPlayer={state.currentPlayer} timer={timer} />
+      )}
       <div
         className={`w-full h-60 bg-${
           state.currentPlayer === "red" ? "dark-violet" : "yellow"
