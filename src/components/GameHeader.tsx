@@ -11,7 +11,7 @@ const GameHeader: React.FC<PropsType> = ({ setPause, restart, setTimer }) => {
     <div className="flex justify-center items-center gap-10 md:gap-[200px] 2xl:gap-52">
       <button
         onClick={() => setPause(true)}
-        className="border-none w-27 h-10 bg-dark-violet cursor-pointer text-light text-base font-bold rounded-[20px]"
+        className="border-none w-27 h-10 bg-dark-violet 2xl:hover:bg-pink cursor-pointer text-light text-base font-bold rounded-[20px]"
       >
         MENU
       </button>
@@ -22,7 +22,7 @@ const GameHeader: React.FC<PropsType> = ({ setPause, restart, setTimer }) => {
           setTimer(30);
           setPause(false);
         }}
-        className="border-none w-27 h-10 bg-dark-violet cursor-pointer text-light text-base font-bold rounded-[20px]"
+        className="border-none w-27 h-10 bg-dark-violet 2xl:hover:bg-pink cursor-pointer text-light text-base font-bold rounded-[20px]"
       >
         RESTART
       </button>

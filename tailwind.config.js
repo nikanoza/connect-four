@@ -13,6 +13,7 @@ export default {
       },
       boxShadow: {
         "panel-shadow": "0px 10px 0px 0px #000",
+        "hover-shadow": "0px 10px 0px 0px #5C2DD5",
         "circle-shadow": "inset 0 5px 5px #000",
       },
       width: {

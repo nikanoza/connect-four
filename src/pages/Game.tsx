@@ -15,20 +15,20 @@ const Game = () => {
     useGame();
   const [pause, setPause] = useState<boolean>(false);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     if (timer === 0) {
-  //       setTimer(30);
-  //       switchTurn();
-  //       return;
-  //     }
-  //     if (!state.winner && !pause) {
-  //       setTimer((timer) => timer - 1);
-  //     }
-  //   }, 1000);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (timer === 0) {
+        setTimer(30);
+        switchTurn();
+        return;
+      }
+      if (!state.winner && !pause) {
+        setTimer((timer) => timer - 1);
+      }
+    }, 1000);
 
-  //   return () => clearInterval(interval);
-  // }, [timer, switchTurn]);
+    return () => clearInterval(interval);
+  }, [timer, switchTurn]);
 
   const pauseHandler: React.KeyboardEventHandler<HTMLDivElement> = (event) => {
     console.log(event.key);
@@ -60,7 +60,7 @@ const Game = () => {
           </h3>
           <h1 className="text-6xl font-bold text-night">WINS</h1>
           <button
-            className="px-5 py-2 rounded-[20px] bg-dark-violet border-none text-light text-base font-bold"
+            className="px-5 py-2 rounded-[20px] bg-dark-violet 2xl:hover:bg-pink border-none text-light text-base font-bold"
             onClick={nextRound}
           >
             PLAY AGAIN
