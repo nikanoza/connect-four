@@ -14,6 +14,9 @@ const Game = () => {
   const { state, handleColumnClick, switchTurn, restart, nextRound } =
     useGame();
   const [pause, setPause] = useState<boolean>(false);
+  useEffect(() => {
+    restart();
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
