@@ -32,7 +32,9 @@ const Pause: React.FC<PropsType> = ({ setPause, restart, setTimer }) => {
           onClick={() => {
             restart();
             setTimer(30);
-            navigate({ to: "/" });
+            setTimeout(() => {
+              navigate({ to: "/" });
+            }, 500);
           }}
           className="border-2 border-black w-full bg-pink h-[72px] text-2xl text-light font-bold rounded-[20px] mt-7 shadow-panel-shadow"
         >
