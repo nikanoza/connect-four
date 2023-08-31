@@ -1,21 +1,26 @@
 const RedLarge = () => {
   return (
     <svg
-      width="70px"
-      height="75px"
-      viewBox="0 0 70 75"
+      width="64px"
+      height="64px"
+      viewBox="0 0 41 46"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >
-      <title>counter-red-large</title>
+      <title>counter-red-small</title>
       <defs>
-        <circle id="path-1" cx="35" cy="35" r="32"></circle>
+        <circle
+          id="path-1"
+          cx="19.9756098"
+          cy="19.9756098"
+          r="16.9756098"
+        ></circle>
         <filter
-          x="-3.9%"
-          y="-3.9%"
-          width="107.8%"
-          height="107.8%"
+          x="-7.4%"
+          y="-7.4%"
+          width="114.7%"
+          height="114.7%"
           filterUnits="objectBoundingBox"
           id="filter-2"
         >
@@ -47,29 +52,40 @@ const RedLarge = () => {
         fill="none"
         fillRule="evenodd"
       >
-        <g id="counter-red-large">
-          <circle
-            id="Oval-Copy-41"
-            fill="#000000"
-            cx="35"
-            cy="35"
-            r="35"
-          ></circle>
-          <circle
-            id="Oval-Copy-42"
-            fill="#000000"
-            cx="35"
-            cy="40"
-            r="35"
-          ></circle>
-          <g id="Oval-Copy-43">
-            <use fill="#FD6687" fillRule="evenodd" xlinkHref="#path-1"></use>
-            <use
-              fill="black"
-              fillOpacity="1"
-              filter="url(#filter-2)"
-              xlinkHref="#path-1"
-            ></use>
+        <g id="assets" transform="translate(-231.000000, -744.000000)">
+          <g id="Group-24" transform="translate(211.000000, 160.000000)">
+            <g
+              id="counter-red-small"
+              transform="translate(20.975610, 584.975610)"
+            >
+              <circle
+                id="Oval-Copy-49"
+                fill="#FD6687"
+                cx="20"
+                cy="20"
+                r="20"
+              ></circle>
+              <circle
+                id="Oval-Copy-50"
+                fill="black"
+                cx="20"
+                cy="25"
+                r="20"
+              ></circle>
+              <g id="Oval-Copy-48">
+                <use
+                  fill="#FD6687"
+                  fillRule="evenodd"
+                  xlinkHref="#path-1"
+                ></use>
+                <use
+                  fill="black"
+                  fillOpacity="1"
+                  filter="url(#filter-2)"
+                  xlinkHref="#path-1"
+                ></use>
+              </g>
+            </g>
           </g>
         </g>
       </g>

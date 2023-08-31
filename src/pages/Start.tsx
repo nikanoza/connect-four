@@ -21,7 +21,7 @@ const Start = () => {
           <Logo />
           <Link
             to="/game"
-            className="py-3 pl-5 pr-4 flex justify-center border-2 border-night border-solid items-center gap-9 md:gap-24 bg-yellow border-2 shadow-panel-shadow rounded-3xl mt-20"
+            className="py-3 pl-5 pr-4 flex justify-center  border-night border-solid items-center gap-9 md:gap-24 bg-yellow border-2 shadow-panel-shadow rounded-3xl mt-20"
           >
             <h3 className="text-night text-2xl font-bold">PLAY VS PLAYER</h3>
             <VsPlayer />

@@ -15,20 +15,20 @@ const Game = () => {
     useGame();
   const [pause, setPause] = useState<boolean>(false);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (timer === 0) {
-        setTimer(30);
-        switchTurn();
-        return;
-      }
-      if (!state.winner && !pause) {
-        setTimer((timer) => timer - 1);
-      }
-    }, 1000);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     if (timer === 0) {
+  //       setTimer(30);
+  //       switchTurn();
+  //       return;
+  //     }
+  //     if (!state.winner && !pause) {
+  //       setTimer((timer) => timer - 1);
+  //     }
+  //   }, 1000);
 
-    return () => clearInterval(interval);
-  }, [timer, switchTurn]);
+  //   return () => clearInterval(interval);
+  // }, [timer, switchTurn]);
 
   const pauseHandler: React.KeyboardEventHandler<HTMLDivElement> = (event) => {
     console.log(event.key);
@@ -39,14 +39,14 @@ const Game = () => {
 
   return (
     <div
-      className="w-full min-h-screen flex flex-col items-center pt-12"
+      className="w-full min-h-screen md:overflow-y-hidden flex flex-col items-center pt-12 md:pt-7 2xl:mt-14"
       tabIndex={0}
       onKeyDown={pauseHandler}
     >
       {pause ? (
         <Pause setPause={setPause} restart={restart} setTimer={setTimer} />
       ) : null}
-      <GameHeader />
+      <GameHeader setPause={setPause} restart={restart} setTimer={setTimer} />
       <GamePanel scores={state.scores} />
       <Display
         handleColumnClick={handleColumnClick}
@@ -54,7 +54,7 @@ const Game = () => {
         setTimer={setTimer}
       />
       {state.winner ? (
-        <div className="flex flex-col items-center bg-light border-2 border-solid border-night shadow-panel-shadow rounded-3xl px-20 py-4 z-20 -mt-5">
+        <div className="flex flex-col items-center bg-light border-2 border-solid border-night shadow-panel-shadow rounded-3xl px-20 py-4 z-20 -mt-5 md:-mt-10">
           <h3 className="text-night text-base font-bold">
             {state.winner === "red" ? "PLAYER 1" : "PLAYER 2"}
           </h3>
@@ -71,8 +71,12 @@ const Game = () => {
       )}
       <div
         className={`w-full h-60 bg-${
-          state.currentPlayer === "red" ? "dark-violet" : "yellow"
-        } rounded-t-[60px] -mt-40`}
+          state.winner === "red"
+            ? "pink"
+            : state.winner === "yellow"
+            ? "yellow"
+            : "dark-violet"
+        } rounded-t-[60px] -mt-40 md:-mt-[197px] 2xl:-mt-[180px]`}
       ></div>
     </div>
   );

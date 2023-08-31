@@ -9,7 +9,7 @@ type PropsType = {
 const TurnPanel: React.FC<PropsType> = ({ currentPlayer, timer }) => {
   return (
     <div
-      className={`relative -mt-3  ${
+      className={`relative -mt-3 md:-mt-10  ${
         currentPlayer === "red" ? "text-light" : "text-night"
       }`}
     >

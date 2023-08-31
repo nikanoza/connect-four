@@ -13,7 +13,7 @@ const rootRoute = new RootRoute({
 
 function Root() {
   return (
-    <main className="w-full min-h-full bg-semi-violet">
+    <main className="w-full min-h-full 2xl:max-h-screen bg-semi-violet md:overflow-y-hidden">
       <Outlet />
     </main>
   );
