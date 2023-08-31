@@ -17,17 +17,17 @@ const Start = () => {
   return (
     <div className="w-full min-h-screen flex justify-center items-center px-5 py-24">
       {!showModal ? (
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center border-[3px] rounded-[40px] border-transparent border-solid md:shadow-panel-shadow md:px-10 md:py-16 md:border-night">
           <Logo />
           <Link
             to="/game"
-            className="py-3 pl-5 pr-4 flex justify-center items-center gap-9 bg-yellow border-2 shadow-panel-shadow rounded-3xl mt-20"
+            className="py-3 pl-5 pr-4 flex justify-center  border-night border-solid items-center gap-9 md:gap-24 bg-yellow border-2 shadow-panel-shadow 2xl:hover:shadow-hover-shadow rounded-3xl mt-20"
           >
             <h3 className="text-night text-2xl font-bold">PLAY VS PLAYER</h3>
             <VsPlayer />
           </Link>
           <button
-            className="w-85 py-3 pl-5 pr-4 bg-light border-2 shadow-panel-shadow rounded-3xl mt-8"
+            className="w-85 md:w-full py-5 pl-5 pr-4 bg-light border-2 border-night border-solid shadow-panel-shadow 2xl:hover:shadow-hover-shadow rounded-3xl mt-8"
             onClick={openModal}
           >
             <h3 className="text-night text-left text-2xl font-bold">
@@ -36,7 +36,7 @@ const Start = () => {
           </button>
         </div>
       ) : (
-        <div className="flex flex-col">
+        <div className="flex flex-col max-w-[480px]">
           <div className="shadow-panel-shadow rounded-3xl bg-light pt-8 px-9 pb-14">
             <h1 className="text-night text-center text-[56px]">RULES</h1>
             <h2 className="text-semi-violet text-xl font-bold mt-7">

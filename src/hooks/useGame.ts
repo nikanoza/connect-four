@@ -146,7 +146,18 @@ const useGame = () => {
     }));
   };
 
-  return { state, handleColumnClick, switchTurn, restart };
+  const nextRound = () => {
+    const newPlayer = switchPlayer(state.currentPlayer);
+    const board: Board = Array.from({ length: 7 }, () => Array(7).fill(null));
+    setState({
+      ...state,
+      board,
+      currentPlayer: newPlayer,
+      winner: null,
+    });
+  };
+
+  return { state, handleColumnClick, switchTurn, restart, nextRound };
 };
 
 export default useGame;
